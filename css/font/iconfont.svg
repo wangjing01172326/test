@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="icon_fabu" unicode="&#60296;" d="M166.464 447.296l212.64-128.736a32 32 0 1 0-33.152-54.72l-266.528 161.312a32 32 0 0 0 4.256 56.928l832 347.456a32 32 0 0 0 43.744-35.52l-145.76-768a32 32 0 0 0-48.576-21.056l-270.208 171.328a32 32 0 0 0 34.24 54.08l230.464-146.112L885.44 747.52 166.464 447.296zM416 263.904V0a32 32 0 0 0-64 0v278.624a32 32 0 0 0 11.2 24.32L752.192 636a32 32 0 0 0 41.6-48.64L416 263.936z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>
