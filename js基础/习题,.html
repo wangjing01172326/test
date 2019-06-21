@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        1．随机生成两个小数给变量x.y，然后显示这两个数中的最大值。
+        （提示：语句“var x=Math.random();”可为变量生成一个随机小数：另外，使用条件运算符‘'?:")
+        <br><br>
+        <!-- <script>
+            var x=Math.random();
+            var y=Math.random();
+            var max = x>y?x:y;
+            console.log(x);
+            console.log(y);
+            console.log(max)
+        </script> -->
+        2．如果某年的年份值是4的倍数并且不是100的倍数，或者该年份值是400的倍数，那么这一年就是闰年。
+        请编制一个页面，该页面显示当天是否处于闰年。
+        提示：使用以下语句，可使变量year的值就是当天所属的年份值。
+        var today = new Date();   //获取当天日期
+        var year = today.getFullYear();   //获取当天年份
+        <br><br>
+        <!-- <script>
+            var today = new Date();
+            var year = today.getFullYear();
+            console.log( year)
+            // year=2012;测试数据
+            if(year%4==0&&year%100!=0||year==400){
+                console.log("是闰年")
+            }else{
+                console.log("不是闰年")
+            }
+        </script> -->
+        1.编写程序．通过用户输入的年龄判断是哪个年龄段的人
+        （儿童：年龄＜14；青少年：14<=年龄＜24；青年：24<年龄＜40; 中年：40＜=年龄＜60; 老年：年龄>=60），
+        并在页面上输出判断结果。
+        <br><br>
+        <!-- <script>
+            var year;
+            year = 69;//测试数据
+            console.log(year)
+            if(year<14){
+                console.log("儿童")
+            }else if (year<24) {
+               console.log("青少年") 
+            } else if(year<40){
+                console.log("青年")
+            }else if(year<60){
+                console.log("中年")
+            }else{
+                console.log("老年")
+            }
+        </script> -->
+        2.编写程序，艰据用户输入的一个数字(0~6)．通过警示对话框显示对应的星期几(0: 星期日; 1: 星期一;……6: 星期六;)。
+        <br><br>
+        <!-- <script>
+            var num;
+            num=5;//测试数据
+            switch(num){
+                case 0:console.log("星期日");break;
+                case 1:console.log("星期一");break;
+                case 2:console.log("星期二");break;
+                case 3:console.log("星期三");break;
+                case 4:console.log("星期四");break;
+                case 5:console.log("星期五");break;
+                case 6:console.log("星期六");break;
+            }
+        </script> -->
+        3.编写程序，计算10!(即 1*2*3＊·…10）的结果(10的阶乘)。<br><br>
+        <!-- <script>
+            var sum=1;
+           for(var i=1;i<=10;i++){
+            sum =sum*i;
+            console.log(sum)
+           }
+        </script> -->
+        4.编写程序，计算 1!+2!+3!+…..＋10！的结果。<br><br>
+        <!-- <script>
+            var mul = 1;
+            var sum = 0;
+            for(var i=1;i<=10;i++){
+                mul = mul*i;
+                sum = sum + mul;
+                console.log(sum);
+            }
+        </script> -->
+        5.在页面上输出如下数字图案。<br>
+        1 <br>
+        1 2 <br>
+        1 2 3 <br>
+        1 2 3 4 <br>
+        1 2 3 4 5 <br>
+        其中，每行的数字之间有一个空格间隔。<br><br>
+        <!-- <script>
+            var arr=[];
+            for(var i=1;i<6;i++){
+                arr=arr.concat(i);
+                arr.join(" ");
+                console.log(arr.join(" "))
+            }
+        </script> -->
+        6.在页面上输出如下图案。
+        其中，每行的星号"*"之间有一个空格间隔。<br><br>
+        <!-- <script>
+            for(var i=1;i<=5;i++){
+                for(var k=0;k<5-i;k++){
+                    document.write("&nbsp")
+                }
+                for(var j=1;j<=i;j++){
+                    document.write("*&nbsp");
+                }
+                document.write("<br/>")
+            }
+        </script> -->
+        7.有一个三位数x，被4除余2，被7除余3，被9除余5，请求出这个数。<br><br>
+        <!-- <script>
+            for(var i=100;i<=1000;i++ ){
+                if(i%4==2 && i%7==3 && i%9==5){
+                    console.log(i)
+                    break;
+                }
+            }
+        </script> -->
+        8.求所有满足条件的四位数ABCD，它是13的倍数，且第3位数加上第2位数等于第4位数（即：A=B+C）。<br>
+        （提示：对于四位数的整数x，通过Math.floor(x/1000)可求出第4位的数字，其他位数的提取也类似） <br><br>
+       <!-- <script>
+           for(var i=1000;i<=10000;i++){
+               var A=Math.floor(i/1000);
+               var B=(Math.floor(i/100))%10;
+               var C=(Math.floor(i/10))%10;
+               if(i%13==0 && A==B+C){
+                console.log(i);
+               }
+           }
+       </script> -->
+       1. 编写一个函数 f(x) = 4x2+3x+2，使用户通过提示对话框输入x的值，能得到相应的计算结果。<br><br>
+       <!-- <script>
+           function foo(x){
+               var sum=0;
+               sum=(4*x*x)+3*x+2;
+               return sum;
+           }
+           console.log(foo(2));
+       </script> -->
+       2.编写一个函数Min(x,y)求出x,y这两个数中的最小值，要求x,y的值由用户通过提示对话框输入。<br><br>
+       <!-- <script>
+           var a=window.prompt("输入a");
+           var b=window.prompt("输入b");
+           function Min(x,y){
+             var  min=x<y?x:y;
+            console.log(min)
+           }
+           Min(a,b);
+       </script> -->
+       3.编写一个判断某个非负整数是否能够同时被3,5,7整除的函数，然后在页面上输出1~1000之间所有能同时被3,5,7整除的整数，
+       并要求每行显示6个这样的数。<br><br>
+       <!-- <script>
+           function foo(x){
+            if(x%3==0 && x%5==0 && x%7==0){
+                return true
+            }else{
+                return false
+            }
+           }
+           var key = 0;
+           for( var i=1;i<1000;i++){
+               if(foo(i)){
+                ++key;
+                document.write(i+"&nbsp;");
+                if(key%6==0){
+                    document.write("<br/>");
+                }
+               }
+           }
+       </script> -->
+       4.在页面上编程输出100~1000之间的所有素数，并要求每行显示6个素数。<br><br>
+       <!-- <script>
+         function foo(x){
+             var key = false;
+           for(var i=2;i<x;i++){
+               if(x%i==0){
+                   key=false;
+                   break;
+               }else{
+                  key=true;
+               }
+           }
+           return key;
+         }  
+         var arr=[];
+         for(var i=100;i<1000;i++){
+          if(foo(i)){
+              arr.push(i);
+          }   
+         }
+         for(var j=0;j<arr.length;j++){
+             document.write(arr[j]+"&nbsp;");
+             if((j+1)%6==0){
+                 document.write("<br/>");
+             }
+         }
+       </script> -->
+       5.编写一个非递归函数factorial(n)，计算12!-10!的结果。<br><br>
+       <!-- <script>
+           function foo(n){
+               var key=1;
+               if(n==1){
+                   return 1;
+               }
+            for(var i=1;i<=n;i++){
+                key*=i;
+            }
+            return key;
+           }
+           console.log(foo(12)-foo(10))
+       </script> -->
+       6.编写一个带一个参数（指定显示多少层星号“*”的函数，它在页面止输出的一个5层星号“*”图案类似。其中，每行的星号“*”之间有一个空格间隔<br><br>
+       <!-- <script>
+           function foo(key){
+            for(var i=1;i<=key;i++){
+                for(var k=0;k<key-i;k++){
+                    document.write("&nbsp;")
+                }
+               for(var j=0;j<i;j++){
+                document.write("*&nbsp;")
+               }
+               document.write("<br/>")
+           }
+           }
+           foo(5)
+       </script> -->
+       7.斐波纳契（Fibonacci）数列的第一项是1，第二项是1，以后各项都是前两项的和。试用递归函数和非递归函数各编写一个程序，
+       求斐波纳契数列第N项的值。<br><br>
+       <!-- <script>
+           //非递归法
+           function Fibonacci(n){
+            if(n<=2){
+                return 1
+            }
+            var a=1,b=1,temp=0;
+            //a=n-2项 b=n-1项
+            for(var i=3;i<=n;i++){
+                temp=a+b;
+                a=b;
+                b=temp;
+            }
+            return temp
+           }
+           console.log(Fibonacci(5));
+           //递归法
+           function Fibonacci2(n){
+            if(n<=2){
+                return 1;
+            }
+            return Fibonacci2(n-1)+Fibonacci2(n-2)
+           }
+           console.log(Fibonacci(5));
+       </script> -->
+       8.编写函数，用下面的公式计算π的近似值。在页面上输出当n=100，500，1000，10000时π的近似值。<br><br>
+       <!-- <script>
+           function foo(n){
+            var sum=0;
+            var key=-1;
+            for(var i=1;i<n;i++){
+                if((i-1)%2==0){
+                key=1;
+            }
+                sum+=key*(1/(2*i-1));
+                key=-1;
+            }
+            return sum*4
+           }
+           console.log(foo(100));
+       </script> -->
+       1.编写程序，根据用户输入的数值，计算其平方、平方根和自然对数。<br><br>
+       <!-- <script>
+           var x=window.prompt();
+           console.log(Math.pow(x,2));
+            console.log(Math.sqrt(x));
+            console.log(Math.log(x));
+       </script> -->
+       2.使用Math对象的random()方法编制一个产生0~100之间（含0,100）的随机整数的函数。<br><br>
+       <!-- <script>
+           var x=Math.floor(Math.random()*101);
+           console.log(x);
+       </script> -->
+       3.设计一个页面，在页面上显示信息“现在是XXXX年XX月XX日Xx点XX分XX秒（星期X)，欢迎您的到访！“。<br><br>
+       <!-- <script>
+           var timer=new Date();
+           var year = timer.getFullYear();
+           var month = timer.getMonth();
+           var day = timer.getDate();
+           var hour = timer.getHours();
+           var minu = timer.getMinutes();
+           var sec =timer.getSeconds();
+           var week = timer.getDay()==0?'日':timer.getDay();
+            console.log(year,month,day,week)
+       </script> -->
+       4.编制一个从字符串中收集数字字符（"0"',"1"，…"9"）的函数CollectDigits(s)，它从字符串s中顺序取出数字，
+       并且合并为一个独立的字符串作为函数的返回值。例如函数调用CollectDigits("1abc23def4"）的返回值是字符串"1234"。 <br><br>
+       <!-- <script>
+       function foo(s){
+           var str = "";
+           for(var i=0;i<s.length;i++){
+               if('0'<=s[i]&&s[i]<='9'){
+                str+=s[i]
+               }
+           }
+           return str
+       }
+       console.log(foo("labc1234"));
+       </script> -->
+       5.编制一个将两个字符串交叉合并的函数Merge(s1,s2)，例如Merge("123","abc"）的返回结果是"1a2b3c"，如果两个字符串的长度不同，
+       那么就将多余部分直接合并到结果字符串的末尾，如Merge("123456",''abc''）的返回结果是”1a2b3c456”。<br><br>
+       <script>
+           function foo(s1,s2){
+               var str="";
+            for(var i=0;i<s1.length;i++){
+                str+=s1[i]+s2[i]
+            }
+            console.log(str);
+            
+           }
+           foo("123","abc")
+       </script>
+    
+
+
+</body>
+</html>
