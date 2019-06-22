@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div{
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="div"></div>
+    <script>
+       var oDiv=document.getElementById('div');
+    //    document.onmousemove=function(e){
+    //        console.log(e)        
+    //         oDiv.style.top=e.clientY+"px";
+    //         oDiv.style.left=e.clientX+"px";
+    //        }
+    var width=window.screen.width;
+    var height=window.screen.height;
+    console.log(width)
+    
+           oDiv.onmousedown=function(e){
+               var thisLeft=e.clientX-this.offsetLeft;
+               var thisTop=e.clientY-this.offsetTop;
+            document.onmousemove=function(e){       
+                 
+            oDiv.style.top=e.clientY- thisTop+"px";
+            oDiv.style.left=e.clientX- thisLeft+"px";
+            
+            if(e.clientX<0){
+                oDiv.style.top=e.clientY- thisTop+"px";
+                oDiv.style.left=0+"px";
+            }else if(width-e.clientX<oDiv.offsetWidth){
+                oDiv.style.top=e.clientY- thisTop+"px";
+            oDiv.style.right=0+"px";
+            }else if(e.clientY<0){
+                oDiv.style.top=0+"px";
+                oDiv.style.left=e.clientX- thisLeft+"px";
+            }else if(height-e.clientY<oDiv.offsetHeight){
+                oDiv.style.bottom=0+"px";
+                oDiv.style.left=e.clientX- thisLeft+"px";
+            }
+           }
+           }  
+           oDiv.onmouseup=function(e){
+            document.onmousemove=null;    
+           }
+           
+           
+    </script>
+</body>
+</html>

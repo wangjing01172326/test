@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #small img{
+            width: 200px;
+            height: 200px;
+        }
+        #big{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 250px;
+            top: 0px;
+            background-image: url('../css/image/img2.jpg');
+            background-position: 0px 0px;
+        }
+        #nav{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            background:white;
+            opacity: .5;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="nav"></div>
+    <div id="small">
+        <img src="../css/image/img2.jpg" alt="">
+    </div>
+    <div id="big">
+    </div>
+    <script>
+        var oNav=document.getElementById('nav');
+        var oBig=document.getElementById('big');
+        oNav.onmousedown=function(e){
+            var thisTop=e.clientY-this.offsetTop;
+            var thisLeft=e.clientX-this.offsetLeft;
+            document.onmousemove=function(e){
+                oNav.style.top=e.clientY-thisTop+"px";
+                oNav.style.left=e.clientX-thisLeft+"px";
+                oBig.style.backgroundPositionX=450-2*(e.clientX-thisLeft)+"px";
+                oBig.style.backgroundPositionY=450-2*(e.clientY-thisTop)+"px";
+                if(oNav.offsetLeft<0){
+                    oNav.style.top=e.clientY-thisTop+"px";
+                    oNav.style.left=0+"px";
+                    oBig.style.backgroundPositionX=450+"px";
+                    oBig.style.backgroundPositionY=450-2*(e.clientY-thisTop)+"px";
+                }else if(oNav.offsetTop<0){
+                    oNav.style.top=0+"px";
+                    oNav.style.left=e.clientX-thisLeft+"px";
+                    oBig.style.backgroundPositionX=450-2*(e.clientX-thisLeft)+"px";
+                oBig.style.backgroundPositionY=450+"px";
+                }else if(oNav.offsetLeft+100>200){
+                    oNav.style.top=e.clientY-thisTop+"px";
+                    oNav.style.left=100+"px";
+                    oBig.style.backgroundPositionX=200+"px";
+                    oBig.style.backgroundPositionY=450-2*(e.clientY-thisTop)+"px";
+                }else if(oNav.offsetTop+100>200){
+                    oNav.style.top=100+"px";
+                    oNav.style.left=e.clientX-thisLeft+"px";
+                    oBig.style.backgroundPositionX=450-2*(e.clientX-thisLeft)+"px";
+                    oBig.style.backgroundPositionY=200+"px";
+                }
+            }
+        }
+        oNav.onmouseup=function(){
+            document.onmousemove=null;
+        }
+    </script>
+</body>
+</html>
