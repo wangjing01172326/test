@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        body{
+            background: #000;
+        }
+        .box{
+            width: 490px;
+            height: 310px;
+            border: 5px solid white;
+            position: relative;
+            margin: 200px auto;
+        }
+        img{
+            width: 490px;
+            height: 310px;
+        }
+        .img-bar li{
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .img-bar .active{
+            display: block;
+        }
+        .right-btn {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        .right-btn li,.left-btn li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background:#f90;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            margin: 0 10px 10px 0;
+        }
+        .left-btn{
+            position: absolute;
+            left: 8px;
+            bottom: 0;
+        }
+        .right-btn .active{
+            background:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class=img-bar>
+            <ul>
+                <li class="active"><img src="../css/image/img1.jpg" alt=""> </li>
+                <li><img src="../css/image/img2.jpg" alt=""> </li>
+                <li><img src="../css/image/img1.jpg" alt=""> </li>
+                <li><img src="../css/image/img2.jpg" alt=""> </li>
+                <li><img src="../css/image/img1.jpg" alt=""> </li>
+            </ul>
+        </div>
+        <div class="left-btn">
+            <ul>
+                <li id="lt">&lt;</li>
+                <li id="gt">&gt;</li>
+            </ul>
+        </div>
+        <div class="right-btn">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var numBtn=document.getElementsByClassName('right-btn')[0].getElementsByTagName('li');
+        var aImg=document.getElementsByClassName('img-bar')[0].getElementsByTagName('li');
+        var leftBtn = document.getElementById('lt');
+        var rightBtn=document.getElementById('gt');
+        var timer=null;
+        var nowIndex=0;
+        function play(index){
+            if(index>4){
+                index=0;
+            }
+            if(index<0){
+                index=4;
+            }
+            for(var j=0;j<numBtn.length;j++){
+                    numBtn[j].classList.remove("active");
+                    aImg[j].classList.remove("active");
+                }
+                nowIndex=index;
+            numBtn[index].classList.add('active');
+            aImg[index].classList.add("active");
+        }
+        rightBtn.onclick=function(){
+            nowIndex++;
+            // for(var j=0;j<numBtn.length;j++){
+            //         numBtn[j].classList.remove("active");
+            //         aImg[j].classList.remove("active");
+            //     }
+            // numBtn[nowIndex].classList.add('active');
+            // aImg[nowIndex].classList.add("active");
+            play(nowIndex)
+        }
+        leftBtn.onclick=function(){
+            nowIndex++;
+            play(nowIndex)
+        }
+        for(var i=0;i<numBtn.length;i++){
+            numBtn[i].index=i;
+            numBtn[i].onmouseover=function(){
+                // for(var j=0;j<numBtn.length;j++){
+                //     numBtn[j].classList.remove("active");
+                //     aImg[j].classList.remove("active");
+                // }
+                // aImg[this.index].classList.add("active");
+                // this.classList.add("active");
+                play(this.index)
+            }
+        }
+        function run(){
+         timer = setInterval(function(){
+            nowIndex++;
+            play(nowIndex)
+        },1000)
+        }
+        run();
+        var oBox=document.getElementsByClassName('box')[0];
+        oBox.onmouseover=function(){
+            clearInterval(timer);
+        }
+        oBox.onmouseout=function(){
+            run();
+        }
+        
+    </script>
+</body>
+</html>
