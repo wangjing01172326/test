@@ -1,0 +1,6 @@
+.selected{
+    background: #ff0000;
+}
+.selected span{
+    text-decoration:line-through;
+}
