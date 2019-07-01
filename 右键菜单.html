@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        li{
+            list-style: none;
+        }
+        #ul{
+            height: 150px;
+            width: 100px;
+            border: 1px solid #000;
+            position: absolute;
+            display: none;
+        }
+        #ul li{
+            width: 100px;
+            height: 30px;
+            border-bottom: 1px solid gray;
+            text-align: center;
+            line-height: 30px;
+        }
+        #ul li:last-child{
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="ul">
+        <li>打开</li>
+        <li>下载</li>
+        <li>删除</li>
+        <li>复制</li>
+        <li>属性</li>
+    </ul>
+    <script>
+       var oUl=document.getElementById('ul');
+       var aLi=document.getElementsByTagName('li');
+       document.oncontextmenu=function(e){
+           oUl.style.display='block'
+           var uh=oUl.offsetHeight;
+           var uw=oUl.offsetWidth;
+           var dh=document.documentElement.offsetHeight;
+           var dw=document.documentElement.offsetWidth;
+        //    console.log(dh)
+        //    console.log(dw)
+           if((dw-uw)<e.clientX){
+            oUl.style.left=(e.clientX-uw)+'px';
+           }else{
+            oUl.style.left=e.clientX+'px';
+           }
+           if((dh-uh)<e.clientY){
+            oUl.style.top=(e.clientY-uh)+'px';
+           }else{
+            oUl.style.top=e.clientY+'px';
+           }
+        return false;
+       }
+       document.onclick=function(){
+           oUl.style.display='none';
+       }
+       for(var i=0;i<aLi.length;i++){  
+        //    console.log(aLi[i]) 
+           aLi[i].onmouseover=function(){
+               this.style.background="#ccc"
+           }
+           aLi[i].onmouseleave=function(){
+            this.style.background=""
+           }
+           aLi[i].onclick=function(){
+               alert(this.innerHTML)
+           }
+       }
+    </script>
+</body>
+</html>
