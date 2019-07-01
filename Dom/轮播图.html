@@ -71,7 +71,7 @@
 <body>
     <div class="box">
         <div class=img-bar>
-            <ul>
+            <ul id="contain">
                 <li class="active"><img src="../css/image/img1.jpg" alt=""> </li>
                 <li><img src="../css/image/img2.jpg" alt=""> </li>
                 <li><img src="../css/image/img1.jpg" alt=""> </li>
@@ -95,11 +95,13 @@
             </ul>
         </div>
     </div>
+    
     <script>
         var numBtn=document.getElementsByClassName('right-btn')[0].getElementsByTagName('li');
         var aImg=document.getElementsByClassName('img-bar')[0].getElementsByTagName('li');
         var leftBtn = document.getElementById('lt');
         var rightBtn=document.getElementById('gt');
+        var oContain = document.getElementById('contain');
         var timer=null;
         var nowIndex=0;
         function play(index){
@@ -116,6 +118,7 @@
                 nowIndex=index;
             numBtn[index].classList.add('active');
             aImg[index].classList.add("active");
+           
         }
         rightBtn.onclick=function(){
             nowIndex++;
@@ -133,6 +136,7 @@
         }
         for(var i=0;i<numBtn.length;i++){
             numBtn[i].index=i;
+           
             numBtn[i].onmouseover=function(){
                 // for(var j=0;j<numBtn.length;j++){
                 //     numBtn[j].classList.remove("active");
