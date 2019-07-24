@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <!-- 第一个参数是值，第二个是索引 -->
+            <!-- <li v-for="(val,index) in arr">
+                {{val}},{{index}}
+            </li> -->
+            <!-- <li v-for="val in stuList">
+                {{val.name}},{{val.age}}
+            </li> -->
+            <li v-for="(val,key) in obj">
+                {{val}},{{key}}
+            </li>
+            <!-- 第二个参数是键 -->
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm= new Vue({
+            el:'#app',
+            data:{
+                msg:'hello world',
+                arr:[111,222,333,444],
+                stuList:[{
+                    name:'zhangsan',
+                    age:12
+                },
+                {
+                    name:'lisi',
+                    age:13
+                },
+                {
+                    name:'wangwu',
+                    age:14
+                } ],
+                obj:{
+                    a:1,
+                    b:2,
+                    c:3
+                }
+            }
+        })
+    </script>
+</body>
+</html>

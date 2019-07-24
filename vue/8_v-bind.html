@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red{
+            background:red;
+            height: 200px;
+            width: 200px;
+        }
+        .font{
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 动态绑定 v-bind:可以简写成： -->
+    <!-- <div id="app" v-bind:class="ClassObj"> -->
+            <div id="app" v-bind:class="{red:false,font:true }">
+            <!-- <div id="app" v-bind:class="[classA,classB]"> -->
+        <!-- //class里可以用对象
+         -->
+         hello world
+         <button @click="fun">点击</button>
+         <div id="div1" :style="{background:styleA,'font-size':styleB}">sdfdhfgjhgk</div>
+    </div>
+        <script src="vue.js"></script>
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                styleA:'blue',
+                styleB:'',
+                t:'xx',
+                isRed:false,
+                isFont:true,
+                // ClassObj:{
+                //     red:false,
+                //     font:true
+                // }
+                classA:'red',
+                classB:'font'
+            },
+            methods: {
+                fun(){
+                    this.isRed=!this.isRed;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
